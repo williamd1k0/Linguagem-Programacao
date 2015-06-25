@@ -10,11 +10,20 @@ public class Phi {
 
         boolean repetir = false;
         int yesNo;
+        int calcType;
 
         JOptionPane.showMessageDialog(null,"Calculo para identificar proporcao aurea.");
-        do {
-            calcularPhi();
-            yesNo = JOptionPane.showConfirmDialog (null, "Deseja calcular outro retangulo?","Calcular Phi",JOptionPane.YES_NO_OPTION);
+        do{
+            do{
+                calcType = Integer.parseInt(JOptionPane.showInputDialog("Escolha o tipo de calculo:\n1 - Verificar proporcao de um retangulo.\n2 - Mostrar possiveis medidas a partir de uma so.","Digite somente 1 ou 2"));
+                if (calcType == 1) {
+                    calcularPhi();
+                }else if (calcType == 2) {
+                    medidasPhi();
+                }
+            }while ((calcType != 1) && (calcType != 2));
+
+            yesNo = JOptionPane.showConfirmDialog(null, "Deseja calcular outro retangulo?","Calcular Phi",JOptionPane.YES_NO_OPTION);
             if(yesNo == JOptionPane.YES_OPTION){
                 repetir = true;
             }else{
@@ -33,6 +42,16 @@ public class Phi {
         }else{
             return false;
         }
+    }
+
+    static void medidasPhi(){
+        /*
+        *   Método que mostra possíveis comprimentos de um retângulo a partir de uma única medida.
+        */
+        double size0 = Double.parseDouble(JOptionPane.showInputDialog("Calculo de possiveis medidas dentro da proporcao aurea.\nDigite o comprimento desejado."));
+        double size1 = size0 * 1.618;
+        double size2 = size0 / 1.618;
+        JOptionPane.showMessageDialog(null, "Medidas que podem ser usadas com " + size0 + ":\n" + size1 + "\n" + size2);
     }
 
     static void calcularPhi(){
