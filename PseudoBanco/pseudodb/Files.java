@@ -1,7 +1,8 @@
+package pseudodb;
 import java.io.*;
 import javax.swing.*;
 
-class Files{
+public class Files{
 
     String nome = "nome.cep";
     String idade = "idade.cep";
