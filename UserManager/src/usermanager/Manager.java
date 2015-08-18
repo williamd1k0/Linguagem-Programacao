@@ -2,9 +2,14 @@ package usermanager;
 
 import java.io.File;
 import javax.swing.JOptionPane;
+import mainprogram.Configs;
 import pseudodb.*;
 
-public class Manager {
+/**
+ *
+ * @author tumeo
+ */
+public class Manager extends Configs{
 
     final Files DATA_BASE = new Files();
     final User DATA_FILES = new User("cep");
@@ -13,6 +18,11 @@ public class Manager {
     boolean folderCreated;
     boolean backupEnabled = true;
     
+    /**
+     *
+     * @param folder
+     * @throws Exception
+     */
     public Manager(String folder) throws Exception{
         this.mainFolder = folder+File.separator;
         this.backupFolder = this.mainFolder+File.separator+specialChar;
@@ -27,11 +37,21 @@ public class Manager {
         }
         folderCreated = true;
     }
+
+    /**
+     *
+     */
     public Manager(){
         System.out.println("Pasta destino não definida!");
         folderCreated = false;
     }
     
+    /**
+     *
+     * @param user
+     * @return
+     * @throws Exception
+     */
     public boolean menu(User user) throws Exception {
         String opt;
         boolean exit = true;
@@ -63,6 +83,10 @@ public class Manager {
         return exit;
     }
 
+    /**
+     *
+     * @param newUser
+     */
     public void createUser(User newUser) {
         boolean isNew = false;
         String check;
@@ -83,6 +107,13 @@ public class Manager {
         }
     }
 
+    /**
+     *
+     * @param inputMessage
+     * @param errorMessage
+     * @return
+     * @throws Exception
+     */
     public User getById(String inputMessage, String errorMessage) throws Exception {
         String getId = "";
         boolean userExiste = true;
@@ -101,6 +132,12 @@ public class Manager {
         }
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     * @throws Exception
+     */
     public User catchById(String id) throws Exception {
         this.path = this.mainFolder+id+File.separator;
         User getUser = new User();
@@ -112,12 +149,20 @@ public class Manager {
         return getUser;
     }
 
+    /**
+     *
+     * @param u
+     */
     public void showUser(User u) {
         if(!u.getId().equals(specialChar)){
             JOptionPane.showMessageDialog(null, "Usuário: " + u.getName() + "\nUsername: " + u.getId() + "\nIdade: " + u.getIdade() + "\nComida favorita: " + u.getFood());
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void modifyUser() throws Exception {
         User modUser = getById("Digite o username a ser alterado", "O usuário não foi encontrado");
         this.path = this.mainFolder + modUser.getId() + File.separator;
@@ -150,6 +195,10 @@ public class Manager {
         }
     }
 
+    /**
+     *
+     * @throws Exception
+     */
     public void deleteUser() throws Exception {
         User delUser = getById("Digite o username a ser deletado", "O usuário não foi encontrado");
         if (!delUser.getId().equals(specialChar)){
@@ -169,6 +218,10 @@ public class Manager {
         }
     }
 
+    /**
+     *
+     * @param newUser
+     */
     public void newUser(User newUser) {
         this.path = this.mainFolder + newUser.getId() + File.separator;
         newUser.setName(JOptionPane.showInputDialog("Digite seu nome:"));
@@ -180,6 +233,11 @@ public class Manager {
         DATA_BASE.writeFile(this.path, DATA_FILES.getIdade(), newUser.getIdade());
         DATA_BASE.writeFile(this.path, DATA_FILES.getFood(), newUser.getFood());
     }
+
+    /**
+     *
+     * @param backup
+     */
     public void backupUser(User backup) {
         this.path = this.mainFolder + specialChar + File.separator + backup.getId() + File.separator;
         
@@ -191,8 +249,14 @@ public class Manager {
         DATA_BASE.writeFile(this.path, DATA_FILES.getIdade(), backup.getIdade());
         DATA_BASE.writeFile(this.path, DATA_FILES.getFood(), backup.getFood());
     }
+
+    /**
+     *
+     * @return
+     * @throws Exception
+     */
     public boolean checkPersistent() throws Exception{
-        String persist = DATA_BASE.readFile(this.backupFolder, "persistent");
+        String persist = DATA_BASE.readFile(this.backupFolder+File.separator, "persistent");
         return persist.equals("1");
     }
 }

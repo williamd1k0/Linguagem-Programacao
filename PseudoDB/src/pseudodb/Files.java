@@ -2,14 +2,20 @@ package pseudodb;
 
 import java.io.*;
 
+/**
+ *
+ * @author tumeo
+ */
 public class Files {
 
+    /**
+     *
+     * @param path
+     * @param file
+     * @param texto
+     */
     public void writeFile(String path, String file, String texto) {
-        // Escreve no arquivo
-        // Args:
-        //      String path: caminho do arquivo
-        //      String file: nome do arquivo
-        //      String texto: texto do arquivo
+        
         try {
             FileWriter fw = new FileWriter(path + file);
             fw.write(texto);
@@ -22,13 +28,14 @@ public class Files {
         System.out.println("success");
     }
 
+    /**
+     *
+     * @param path
+     * @param file
+     * @return
+     * @throws Exception
+     */
     public String readFile(String path, String file) throws Exception {
-        // Lê o arquivo
-        // Args:
-        //      String path: caminho do arquivo
-        //      String file: nome do arquivo
-        // Retorno:
-        //      String: todo o texto do arquivo
 
         FileReader fr = new FileReader(path + file);
         int i;
@@ -40,6 +47,11 @@ public class Files {
         return texto;
     }
 
+    /**
+     *
+     * @param directory
+     * @return
+     */
     public boolean deleteFoler(File directory) {
         if (directory.exists()){
             File[] files = directory.listFiles();
