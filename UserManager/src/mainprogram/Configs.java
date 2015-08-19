@@ -40,4 +40,8 @@ public class Configs {
         System.out.println("");
     }
     
+    protected boolean isCmdMode(String args){
+        return args.equals(this.CMD_MODE);
+    }
+    
 }

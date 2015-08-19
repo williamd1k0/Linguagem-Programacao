@@ -10,20 +10,20 @@ public class User{
     /** <h1>Método construtor 1</h1>
      * Sem argumentos.
      */
-    public User(){
-        System.out.println("Usuário vazio.");
-    }
+    public User(){}
 
     /** <h1>Método construtor 2</h1>
      * Cria uma instância para ser usada como base para os arquivos que serão criados.
-     * @param ext(String): extensão dos arquivos que serão criados.
+     * @param id
+     * @param nome
+     * @param idade
+     * @param food
      */
-    public User(String ext){
-        ext = "."+ext;
-        this.id += ext;
-        this.nome += ext;
-        this.idade += ext;
-        this.food += ext;
+    public User(String id, String nome, String idade, String food){      
+        this.id = id;
+        this.nome = nome;
+        this.idade += idade;
+        this.food += food;
     }
     
     /** <h1>Alterar ID</h1>
@@ -58,43 +58,4 @@ public class User{
             return this.nome;
     }
     
-    /**
-     *
-     * @param num
-     */
-    public void setIdade(String num){
-        this.idade = num;
-    }
-
-    /**
-     *
-     * @param num
-     */
-    public void setIdade(int num){
-        this.idade = String.valueOf(num);
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getIdade(){
-            return this.idade;
-    }
-    
-    /**
-     *
-     * @param food
-     */
-    public void setFood(String food){
-        this.food = food;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public String getFood(){
-            return this.food;
-    }
 }

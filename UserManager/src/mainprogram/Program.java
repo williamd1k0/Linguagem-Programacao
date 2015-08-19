@@ -11,11 +11,11 @@ public class Program{
      * @throws Exception
      */
     public static void main(String[] args) throws Exception{
-
-        Manager mainProgram = new Manager("data");
-        User user = new User();
+        
+        UserManager mainProg = new UserManager("data", "cep");
         
         boolean exit, hasArgs = true;
+        boolean cmdMode = false;
         
         try{
             String misc = args[0];  
@@ -23,11 +23,16 @@ public class Program{
             hasArgs = false;
         }
         
-        if(hasArgs){
-            mainProgram.exeArgs(args);
-        }else{
+        if(hasArgs && mainProg.isCmdMode(args[0])){  
+            mainProg.exeArgs(args);
+            cmdMode = true;
+        }else if(hasArgs && !mainProg.isCmdMode(args[0])){
+            mainProg.exeArgs(args);   
+        }
+        
+        if(!cmdMode){
             do{
-                exit = mainProgram.menu(user);
+                exit = mainProg.menu();
             }while(!exit);
         }
     }

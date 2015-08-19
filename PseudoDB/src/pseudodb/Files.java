@@ -1,12 +1,13 @@
 package pseudodb;
 
 import java.io.*;
+import org.apache.commons.codec.binary.Base64;
 
 /**
  *
  * @author tumeo
  */
-public class Files {
+public final class Files {
 
     /**
      *
@@ -62,5 +63,15 @@ public class Files {
             }
         }
         return directory.delete();
+    }
+    
+    public String encodePass(String pass){
+        byte[] encodedBytes = Base64.encodeBase64(pass.getBytes());
+        return new String(encodedBytes);
+    }
+    
+    public String decodePass(String pass){
+        byte[] decodedBytes = Base64.decodeBase64(pass);
+        return new String(decodedBytes);
     }
 }
