@@ -3,7 +3,7 @@ package datamanager;
 import pseudodb.*;
 
 /** <h1>Classe Manager</h1>
- * Tem a função de gerar sub-classes para o gerenciamento individual de dados;
+ * Tem a função de gerar sub-classes para o gerenciamento individual de dados.
  * @author tumeo
  */
 public class Manager extends Configs{
