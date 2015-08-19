@@ -1,4 +1,5 @@
 package mainprogram;
+import adminmanager.*;
 import usermanager.*;
 
 /**
@@ -12,28 +13,33 @@ public class Program{
      */
     public static void main(String[] args) throws Exception{
         
+        AdminManager mainAdm = new AdminManager("root", "adm");
         UserManager mainProg = new UserManager("data", "cep");
         
-        boolean exit, hasArgs = true;
-        boolean cmdMode = false;
+        boolean exit, exit2, hasArgs = true;
         
-        try{
-            String misc = args[0];  
-        }catch(Exception e){
-            hasArgs = false;
-        }
-        
-        if(hasArgs && mainProg.isCmdMode(args[0])){  
-            mainProg.exeArgs(args);
-            cmdMode = true;
-        }else if(hasArgs && !mainProg.isCmdMode(args[0])){
-            mainProg.exeArgs(args);   
-        }
-        
-        if(!cmdMode){
-            do{
-                exit = mainProg.menu();
-            }while(!exit);
-        }
+        exit = false;
+        do{
+            String mainLoop = mainAdm.mainMenu();
+            
+            switch(mainLoop){
+                case "1": 
+                    do{
+                        exit = mainAdm.menu();
+                    }while(!exit);
+                    exit = false;
+                break;
+
+                case "2":
+                    do{
+                        exit2 = mainProg.menu();
+                    }while(!exit2);
+                break;
+                case "3":System.out.println("Sem opções ainda");
+                break;
+                case "4": exit = true;
+
+            }
+        }while(!exit);
     }
 }
