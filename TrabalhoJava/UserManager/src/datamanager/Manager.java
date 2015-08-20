@@ -28,6 +28,9 @@ public class Manager extends Configs{
      */
     SPECIAL_CHAR;
     
+    /**
+     *
+     */
     protected String path;
 
     /**

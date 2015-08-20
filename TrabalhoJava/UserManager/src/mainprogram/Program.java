@@ -16,9 +16,10 @@ public class Program{
         AdminManager mainAdm = new AdminManager("root", "adm");
         UserManager mainProg = new UserManager("data", "cep");
         
-        boolean exit, exit2, hasArgs = true;
+        boolean exit, exit2;
         
         exit = false;
+        
         do{
             String mainLoop = mainAdm.mainMenu();
             

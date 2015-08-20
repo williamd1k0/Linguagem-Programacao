@@ -78,7 +78,12 @@ public class UserManager extends Manager{
         if(this.folderCreated){
             do {
                 exit = false;
-                opt = JOptionPane.showInputDialog("Menu:\n1. Criar usuário.\n2. Consultar.\n3. Alterar\n4. Deletar.\n5. Sair.");
+                opt = JOptionPane.showInputDialog("Menu:\n"+
+                                                  "1. Criar usuário.\n"+
+                                                  "2. Consultar.\n"+
+                                                  "3. Alterar\n"+
+                                                  "4. Deletar.\n"+
+                                                  "5. Voltar.");
             } while (!((opt.equals("1")) || (opt.equals("2")) || (opt.equals("3")) || (opt.equals("4")) || (opt.equals("5"))));
 
             switch (opt) {

@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/usermanager/UserManager.java</file>
             <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/mainprogram/Program.java</file>
-            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/mainprogram/Configs.java</file>
-            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/mainprogram/CommomUser.java</file>
-            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/usermanager/Manager.java</file>
-            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/usermanager/User.java</file>
-            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/mainprogram/UserManager.java</file>
+            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/datamanager/Configs.java</file>
+            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/adminmanager/AdminManager.java</file>
+            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/adminmanager/AdminUser.java</file>
+            <file>file:/C:/Users/tumeo/NetBeansProjects/UserManager/src/usermanager/CommomUser.java</file>
         </group>
     </open-files>
 </project-private>
